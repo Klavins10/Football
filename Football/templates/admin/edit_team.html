@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Team - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Edit Team</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('edit_team', team_id=team[0]) }}">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Team Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ team[1] }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" name="city" value="{{ team[2] }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="founded" class="form-label">Year Founded</label>
+                            <input type="number" class="form-control" id="founded" name="founded" value="{{ team[3] }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stadium" class="form-label">Stadium</label>
+                            <input type="text" class="form-control" id="stadium" name="stadium" value="{{ team[4] }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="logo" class="form-label">Logo Filename</label>
+                            <input type="text" class="form-control" id="logo" name="logo" value="{{ team[5] }}" placeholder="e.g., riga.jpg">
+                            <small class="text-muted">Place the image file in the static/images folder</small>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Update Team</button>
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ team[1] }} - Latvian Football Teams{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    {% if team[5] %}
+                    <img src="{{ url_for('static', filename='images/' + team[5]) }}" alt="{{ team[1] }} logo" class="team-logo mb-3">
+                    {% endif %}
+                    <h2>{{ team[1] }}</h2>
+                    <p class="text-muted">{{ team[2] }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Team Information</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Founded:</strong> {{ team[3] }}</p>
+                    <p><strong>Stadium:</strong> {{ team[4] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Players</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for player in players %}
+                                <tr>
+                                    <td>{{ player[1] }}</td>
+                                    <td>{{ player[3] }}</td>
+                                    <td>{{ player[4] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

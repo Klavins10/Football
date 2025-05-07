@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Latvian Football Teams - Home{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Latvian Football Teams</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for team in teams %}
+    <div class="col">
+        <div class="card h-100">
+            {% if team[5] %}
+            <img src="{{ url_for('static', filename='images/' + team[5]) }}" class="card-img-top team-logo mx-auto mt-3" alt="{{ team[1] }} logo">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ team[1] }}</h5>
+                <p class="card-text">
+                    <strong>City:</strong> {{ team[2] }}<br>
+                    <strong>Founded:</strong> {{ team[3] }}<br>
+                    <strong>Stadium:</strong> {{ team[4] }}
+                </p>
+                <a href="{{ url_for('team', team_id=team[0]) }}" class="btn btn-primary">View Team</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} 

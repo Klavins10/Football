@@ -1,0 +1,55 @@
+.team-logo {
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.team-logo:hover {
+    transform: scale(1.05);
+}
+
+.footer {
+    background-color: #f87caf;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #5187bc;
+    border-bottom: 2px solid #1f4b76;
+}
+
+.btn {
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+} 

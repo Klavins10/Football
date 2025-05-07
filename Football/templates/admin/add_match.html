@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Add Match - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add New Match</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add_match') }}">
+                        <div class="mb-3">
+                            <label for="home_team_id" class="form-label">Home Team</label>
+                            <select class="form-select" id="home_team_id" name="home_team_id" required>
+                                <option value="">Select home team</option>
+                                {% for team in teams %}
+                                <option value="{{ team[0] }}">{{ team[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="away_team_id" class="form-label">Away Team</label>
+                            <select class="form-select" id="away_team_id" name="away_team_id" required>
+                                <option value="">Select away team</option>
+                                {% for team in teams %}
+                                <option value="{{ team[0] }}">{{ team[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="time" name="time" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stadium" class="form-label">Stadium</label>
+                            <input type="text" class="form-control" id="stadium" name="stadium" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Add Match</button>
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
